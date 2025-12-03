@@ -240,6 +240,25 @@ document.getElementById("btnGoogle").addEventListener("click", async () => {
 
 });
 
+document.getElementById("btnDetail").addEventListener("click", () => {
+  window.location.href = "/detail.html";
+});
+
+
+document.getElementById("btnBack").addEventListener("click", () => {
+   const canGoBack =
+    window.history.length > 1 &&
+    document.referrer !== "";
+
+  if (canGoBack) {
+    window.history.back();
+  } else {
+     callJsBridge("backToApp").catch(() => {
+      log("✗ backToApp failed, using fallback");
+      history.back();
+    });
+  }
+});
 /* =========================
    NATIVE LOGGER
 ========================= */

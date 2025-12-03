@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo Detail Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      background: #f5f5f5;
+    }
+
+    .page {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 520px;
+      margin: auto;
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #1976d2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      background: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HOME PAGE -->
+  <div id="homePage" class="page active">
+    <h1>Home</h1>
+    <button id="btnDetail">Buka Detail</button>
+  </div>
+
+  <!-- DETAIL PAGE -->
+  <div id="detailPage" class="page">
+    <h1>Detail Page</h1>
+    <p>Ini halaman detail custom buatan kita sendiri.</p>
+    <button class="back-btn" id="btnBack">Kembali</button>
+  </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
