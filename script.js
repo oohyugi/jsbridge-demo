@@ -217,7 +217,7 @@ document.getElementById("btnHideTopBar").addEventListener("click", async () => {
   if (isMobileApp()) {
     try {
       await callJsBridge("setTopBarVisibility", false);
-            log("setTopBarVisibility false");
+      log("setTopBarVisibility false");
 
     } catch (_) {
     }
@@ -235,6 +235,11 @@ document.getElementById("btnShowTopBar").addEventListener("click", async () => {
   }
 });
 
+document.getElementById("btnGoogle").addEventListener("click", async () => {
+  window.location.href = "https://www.google.com";
+
+});
+
 /* =========================
    NATIVE LOGGER
 ========================= */
@@ -247,7 +252,7 @@ window.__nativeLog = function (msg) {
 ========================= */
 function init() {
   const platformBadge = document.getElementById("platformBadge");
-  
+
   if (isMobileApp()) {
     platformBadge.innerHTML = '<span class="badge mobile">📱 Mobile App</span>';
     log("🚀 Running in Mobile App");
