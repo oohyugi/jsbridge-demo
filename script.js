@@ -1,9 +1,14 @@
 
 const REMOTE = {
-  video: "https://www.w3schools.com/html/mov_bbb.mp4",
-  image: "https://www.w3schools.com/html/img_girl.jpg",
+  // Video alternatif yang lebih reliable
+  video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  
+  // Atau gunakan ini:
+  // video: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+  
+  image: "https://picsum.photos/800/600",
   pdf: "https://pdfobject.com/pdf/sample.pdf",
-  audio: "https://www.w3schools.com/html/horse.mp3"
+  audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 };
 
 const LOCAL = {
@@ -213,52 +218,33 @@ document.getElementById("btnShare").addEventListener("click", async () => {
   }
 });
 
-document.getElementById("btnHideTopBar").addEventListener("click", async () => {
-  if (isMobileApp()) {
-    try {
-      await callJsBridge("setTopBarVisibility", false);
-      log("setTopBarVisibility false");
+// document.getElementById("btnHideTopBar").addEventListener("click", async () => {
+//   if (isMobileApp()) {
+//     try {
+//       await callJsBridge("setTopBarVisibility", false);
+//             log("setTopBarVisibility false");
 
-    } catch (_) {
-    }
-  }
-});
+//     } catch (_) {
+//     }
+//   }
+// });
 
-document.getElementById("btnShowTopBar").addEventListener("click", async () => {
-  if (isMobileApp()) {
-    try {
-      await callJsBridge("setTopBarVisibility", true);
-      log("setTopBarVisibility true");
+// document.getElementById("btnShowTopBar").addEventListener("click", async () => {
+//   if (isMobileApp()) {
+//     try {
+//       await callJsBridge("setTopBarVisibility", true);
+//       log("setTopBarVisibility true");
 
-    } catch (_) {
-    }
-  }
-});
+//     } catch (_) {
+//     }
+//   }
+// });
 
-document.getElementById("btnGoogle").addEventListener("click", async () => {
-  window.location.href = "https://www.google.com";
+// document.getElementById("btnGoogle").addEventListener("click", async () => {
+//     window.location.href = "https://www.google.com";
 
-});
+// });
 
-document.getElementById("btnDetail").addEventListener("click", () => {
-  window.location.href = "detail.html";
-});
-
-
-document.getElementById("btnBack").addEventListener("click", () => {
-   const canGoBack =
-    window.history.length > 1 &&
-    document.referrer !== "";
-
-  if (canGoBack) {
-    window.history.back();
-  } else {
-     callJsBridge("backToApp").catch(() => {
-      log("✗ backToApp failed, using fallback");
-      history.back();
-    });
-  }
-});
 /* =========================
    NATIVE LOGGER
 ========================= */
@@ -271,7 +257,7 @@ window.__nativeLog = function (msg) {
 ========================= */
 function init() {
   const platformBadge = document.getElementById("platformBadge");
-
+  
   if (isMobileApp()) {
     platformBadge.innerHTML = '<span class="badge mobile">📱 Mobile App</span>';
     log("🚀 Running in Mobile App");
@@ -284,4 +270,9 @@ function init() {
   log("✓ Ready");
 }
 
-init();
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
