@@ -213,6 +213,28 @@ document.getElementById("btnShare").addEventListener("click", async () => {
   }
 });
 
+document.getElementById("btnHideTopBar").addEventListener("click", async () => {
+  if (isMobileApp()) {
+    try {
+      await callJsBridge("setTopBarVisibility", false);
+            log("setTopBarVisibility false");
+
+    } catch (_) {
+    }
+  }
+});
+
+document.getElementById("btnShowTopBar").addEventListener("click", async () => {
+  if (isMobileApp()) {
+    try {
+      await callJsBridge("setTopBarVisibility", true);
+      log("setTopBarVisibility true");
+
+    } catch (_) {
+    }
+  }
+});
+
 /* =========================
    NATIVE LOGGER
 ========================= */

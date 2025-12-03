@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<title>Webview Js Bridge</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Webview Js Bridge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="container">
-  <h1>🌉 JsBridge Tester Using Flutter in Webview</h1>
-  
-  <div id="platformBadge"></div>
+  <div class="container">
+    <h1>🌉 JsBridge Tester Using Flutter in Webview</h1>
 
-  <!-- ===== BACK ===== -->
-  <div class="row">
-    <button id="btnBack">← Back to App</button>
-   
+    <div id="platformBadge"></div>
+
+    <!-- ===== BACK ===== -->
+    <div class="row">
+
+      <button id="btnHideTopBar">Hide TopBar</button>
+      <button id="btnShowTopBar"> Show TopBar</button>
+
+
+      <button id="btnBack">← Back to App</button>
+
+    </div>
+
+    <!-- ===== COPY & SHARE ===== -->
+    <div class="row">
+      <label for="copyInput">Teks untuk Copy/Share</label>
+      <textarea id="copyInput" rows="3" placeholder="Ketik sesuatu...">Halo dari WebView!</textarea>
+      <button id="btnCopy">📋 Copy Text</button>
+      <button id="btnShare" class="secondary">🔗 Share</button>
+    </div>
+
+    <!-- ===== VIDEO ===== -->
+    <section>
+      <h2>🎥 Video</h2>
+      <div class="media-wrapper video-wrapper">
+        <video id="videoPlayer" controls playsinline></video>
+      </div>
+      <button onclick="downloadMedia('video1', 'video', REMOTE.video)">
+        ⬇️ Download Video
+      </button>
+    </section>
+
+    <!-- ===== IMAGE ===== -->
+    <section>
+      <h2>🖼️ Image</h2>
+      <div class="media-wrapper">
+        <img id="imageContent" alt="Sample Image" />
+      </div>
+      <button onclick="downloadMedia('img1', 'image', REMOTE.image)">
+        ⬇️ Download Image
+      </button>
+    </section>
+
+    <!-- ===== PDF ===== -->
+    <section>
+      <h2>📄 PDF</h2>
+      <div class="media-wrapper">
+        <iframe id="pdfContent"></iframe>
+      </div>
+      <button onclick="downloadMedia('pdf1', 'pdf', REMOTE.pdf)">
+        ⬇️ Download PDF
+      </button>
+    </section>
+
+    <!-- ===== AUDIO ===== -->
+    <section>
+      <h2>🎵 Audio</h2>
+      <div class="media-wrapper">
+        <audio id="audioPlayer" controls></audio>
+      </div>
+      <button onclick="downloadMedia('audio1', 'audio', REMOTE.audio)">
+        ⬇️ Download Audio
+      </button>
+    </section>
+
+    <!-- ===== LOG ===== -->
+    <pre id="log"></pre>
   </div>
 
-  <!-- ===== COPY & SHARE ===== -->
-  <div class="row">
-    <label for="copyInput">Teks untuk Copy/Share</label>
-    <textarea id="copyInput" rows="3" placeholder="Ketik sesuatu...">Halo dari WebView!</textarea>
-    <button id="btnCopy">📋 Copy Text</button>
-    <button id="btnShare" class="secondary">🔗 Share</button>
-  </div>
-
-  <!-- ===== VIDEO ===== -->
-  <section>
-    <h2>🎥 Video</h2>
-    <div class="media-wrapper video-wrapper">
-      <video id="videoPlayer" controls playsinline></video>
-    </div>
-    <button onclick="downloadMedia('video1', 'video', REMOTE.video)">
-      ⬇️ Download Video
-    </button>
-  </section>
-
-  <!-- ===== IMAGE ===== -->
-  <section>
-    <h2>🖼️ Image</h2>
-    <div class="media-wrapper">
-      <img id="imageContent" alt="Sample Image" />
-    </div>
-    <button onclick="downloadMedia('img1', 'image', REMOTE.image)">
-      ⬇️ Download Image
-    </button>
-  </section>
-
-  <!-- ===== PDF ===== -->
-  <section>
-    <h2>📄 PDF</h2>
-    <div class="media-wrapper">
-      <iframe id="pdfContent"></iframe>
-    </div>
-    <button onclick="downloadMedia('pdf1', 'pdf', REMOTE.pdf)">
-      ⬇️ Download PDF
-    </button>
-  </section>
-
-  <!-- ===== AUDIO ===== -->
-  <section>
-    <h2>🎵 Audio</h2>
-    <div class="media-wrapper">
-      <audio id="audioPlayer" controls></audio>
-    </div>
-    <button onclick="downloadMedia('audio1', 'audio', REMOTE.audio)">
-      ⬇️ Download Audio
-    </button>
-  </section>
-
-  <!-- ===== LOG ===== -->
-  <pre id="log"></pre>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
