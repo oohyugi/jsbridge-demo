@@ -241,7 +241,7 @@ document.getElementById("btnGoogle").addEventListener("click", async () => {
 });
 
 document.getElementById("btnDetail").addEventListener("click", () => {
-  window.location.href = "/detail.html";
+  window.location.href = "detail.html";
 });
 
 
